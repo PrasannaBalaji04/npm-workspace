@@ -1,6 +1,8 @@
+import { log } from 'console';
 import { Employee } from 'create-user';
 import { Request, Response } from 'express';
 import mongoose from 'mongoose';
+import fetch from 'node-fetch';
 
 async function fetchEmployees(req: Request, res: Response): Promise<Response | void> {
   try {
@@ -18,13 +20,10 @@ async function fetchEmployees(req: Request, res: Response): Promise<Response | v
 
 async function fetchEmployee(req: Request, res: Response): Promise<Response | void> {
   try {
-    console.log("called");
-
     if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
       res.status(400).json({ success: false, error: "Id field is invalid" });
     } else {
       const employee = await Employee.findById(req.params.id);
-      console.log(employee);
       res.json({ success: true, data: employee });
 
     }
@@ -37,6 +36,16 @@ async function fetchEmployee(req: Request, res: Response): Promise<Response | vo
     }
   }
 }
+
+// interface UserDetails {
+//   name: String,
+//   email: String,
+//   password: String,
+//   DoB: Date,
+//   token: String,
+//   mobile: String
+// }
+
 module.exports = {
   fetchEmployees,
   fetchEmployee
