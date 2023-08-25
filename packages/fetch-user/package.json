@@ -1,0 +1,22 @@
+{
+  "name": "fetch-user",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.ts",
+  "scripts": {
+    "test": "jest",
+    "start": "nodemon --exec ts-node ./app.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/jest": "^29.5.4",
+    "@types/node": "^20.5.1",
+    "@types/node-fetch": "^2.6.4",
+    "create-user": "1.0.0",
+    "jest": "^29.6.3",
+    "node-fetch": "^3.3.2",
+    "ts-jest": "^29.1.1"
+  }
+}
